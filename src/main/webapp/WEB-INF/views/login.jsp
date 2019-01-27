@@ -16,8 +16,8 @@
                     <h3>Please sign in</h3>
                 </div>
             </div>
-            <form:form action="${pageContext.request.contextPath}/login"
-                       method="post">
+            <form action="${pageContext.request.contextPath}/login"
+                  method="post">
                 <c:if test="${ param.error != null }">
                     <i class="text-danger">Sorry! You entered invalid username/password.</i>
                 </c:if>
@@ -45,7 +45,12 @@
                         </button>
                     </div>
                 </div>
-            </form:form>
+                <div>
+                    <input type="hidden"
+                           name="${_csrf.parameterName}"
+                           value="${_csrf.token}"/>
+                </div>
+            </form>
         </div>
     </div>
 </div>
