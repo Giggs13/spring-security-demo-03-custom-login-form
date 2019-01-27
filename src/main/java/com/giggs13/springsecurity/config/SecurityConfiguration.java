@@ -37,8 +37,8 @@ public class SecurityConfiguration
         User.UserBuilder userBuilder = User.builder();
         auth.inMemoryAuthentication()
                 .withUser(userBuilder.username("john").password(encoder.encode("test123")).roles("EMPLOYEE").build())
-                .withUser(userBuilder.username("mary").password(encoder.encode("test123")).roles("MANAGER").build())
-                .withUser(userBuilder.username("susan").password(encoder.encode("test123")).roles("ADMIN").build());
+                .withUser(userBuilder.username("mary").password(encoder.encode("test123")).roles("EMPLOYEE", "MANAGER").build())
+                .withUser(userBuilder.username("susan").password(encoder.encode("test123")).roles("EMPLOYEE", "ADMIN").build());
     }
 
     @Override

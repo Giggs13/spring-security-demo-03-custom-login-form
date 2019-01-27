@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <title>Project Home Page</title>
@@ -13,6 +14,13 @@
             <div class="row py-3">
                 <div class="col text-body">
                     <h3>Welcome to the Project Home Page!</h3>
+                </div>
+            </div>
+            <hr>
+            <div class="row py-3">
+                <div class="col text-primary">
+                    <p>User: <security:authentication property="principal.username"/></p>
+                    <p>Role(s): <security:authentication property="principal.authorities"/></p>
                 </div>
             </div>
             <hr>
