@@ -12,7 +12,7 @@ public class SpringMvcDispatcherServletInitializer
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{AppConfiguration.class};
+        return new Class[]{McvWebConfiguration.class};
     }
 
     @Override
