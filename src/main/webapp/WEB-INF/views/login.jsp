@@ -16,10 +16,13 @@
                     <h3>Please sign in</h3>
                 </div>
             </div>
-            <form:form action="${pageContext.request.contextPath}/authenticate-user"
+            <form:form action="${pageContext.request.contextPath}/login"
                        method="post">
                 <c:if test="${ param.error != null }">
                     <i class="text-danger">Sorry! You entered invalid username/password.</i>
+                </c:if>
+                <c:if test="${ param.logout != null }">
+                    <i class="text-success">You have been logged out.</i>
                 </c:if>
                 <div class="form-group">
                     <input type="text"

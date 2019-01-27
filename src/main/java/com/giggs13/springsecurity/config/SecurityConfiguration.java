@@ -22,8 +22,10 @@ public class SecurityConfiguration
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login-page")
-                .loginProcessingUrl("/authenticate-user")
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
                 .permitAll();
     }
 
