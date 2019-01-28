@@ -24,6 +24,28 @@
                 </div>
             </div>
             <hr>
+            <security:authorize access="hasAuthority('ROLE_MANAGER')">
+                <div class="row mb-2">
+                    <div class="col-sm">
+                        <a role="button"
+                           class="btn btn-light"
+                           href="${pageContext.request.contextPath}/leaders">Leadership Meeting
+                        </a>
+                    </div>
+                </div>
+                <hr>
+            </security:authorize>
+            <security:authorize access="hasAuthority('ROLE_ADMIN')">
+                <div class="row mb-2">
+                    <div class="col-sm">
+                        <a role="button"
+                           class="btn btn-light"
+                           href="${pageContext.request.contextPath}/systems">IT Systems Meeting
+                        </a>
+                    </div>
+                </div>
+                <hr>
+            </security:authorize>
             <form:form action="${pageContext.request.contextPath}/logout"
                        method="post">
                 <div class="row">

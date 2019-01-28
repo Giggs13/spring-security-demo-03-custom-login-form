@@ -19,14 +19,16 @@ public class SecurityConfiguration
     protected void configure(HttpSecurity http)
             throws Exception {
         http.authorizeRequests()
-                .anyRequest().authenticated()
+                // .anyRequest().authenticated()
+                .antMatchers("/").hasRole("EMPLOYEE")
+                .antMatchers("/leaders/**").hasAuthority("ROLE_MANAGER")
+                .antMatchers("/systems/**").hasAuthority("ROLE_ADMIN")
                 .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
+                .formLogin().loginPage("/login").permitAll()
                 .and()
-                .logout()
-                .permitAll();
+                .logout().permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/access-denied");
     }
 
     @Override
